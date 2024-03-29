@@ -72,7 +72,7 @@ class DiffBolder:
 
         files_with_date = []
         for obj in list_of_files:
-            if os.path.isfile(os.path.join(self.file_path,obj)) and self.file_name in obj:
+            if os.path.isfile(os.path.join(self.file_path, obj)) and re.findall(f"\b{self.file_name}\b", obj):
                 files_with_date.append(obj.split(".")[0])  # TODO: what if more dots are used?
 
         if len(files_with_date) == 0:
